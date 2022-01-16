@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dom Parser</title>
+    <style>
+        h1{
+            align-items: center;
+            text-align: center;
+            background-color: #2eca6a;
+        }
+        button{
+            width: 200px;
+            height: 80px;
+            margin-left: 500px;
+            background-color: #2eca6a;
+            border-radius: 30px;
+        }
+        button:hover{
+            background-color: black;
+            color: white;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <h1>Real Estate Management System</h1>
+    <h2>Our Managers and their current Projects</h2>
+    <p><button onclick="loadxmldoc()">Click here</button></p>
+
+    <table id="managername" border="1">
+        <tr>
+            <th>Manager Name</th>
+            <th>Phone Number</th>
+            <th>Address</th>
+            <th>Email</th>
+            <th>Age</th>
+            <th>Projects<th>
+        </tr>
+    </table>
+
+    <script>
+        function loadxmldoc(){
+            var xmlhttp = new XMLHttpRequest();
+            xmlhttp.onreadystatechange = function(){
+                if (this.readyState == 4 && this.status == 200){
+                    myFunction(this);
+                }
+            };
+            xmlhttp.open("GET","D:\MCA\ConstructionManagement\construction.xml",true);
+            xmlhttp.send();
+        }
+        function myFunction(xml){
+            var x, i, xmlDoc, table;
+            xmlDoc = xml.responseXML;
+            table = "<tr><th>Manager Name</th><th>Phone Number</th><th><Address></th><th><Email></th><th><Age></th><th><Projects></th></tr>";
+            x = xmlDoc.getElementsByTagName("Managers")
+            for (i = 0; i < x.length; i++){
+                table += "<tr><td>"+
+                    x[i].getElementsByTagName("Manager Name")[0].childNodes[0].nodeValue + "</td><td>"+ 
+                    x[i].getElementsByTagName("Phone Number")[0].childNodes[0].nodeValue + "</td></tr>" +
+                    x[i].getElementsByTagName("Address")[0].childNodes[0].nodeValue + "</td></tr>"+
+                    x[i].getElementsByTagName("Email")[0].childNodes[0].nodeValue + "</td></tr>"+
+                    x[i].getElementsByTagName("Age")[0].childNodes[0].nodeValue + "</td></tr>"+
+                    x[i].getElementsByTagName("Projects")[0].childNodes[0].nodeValue + "</td></tr>";
+            }
+            document.getElementById("managername").innerHTML = table;
+        }
+    </script>
+</body>
+</html>

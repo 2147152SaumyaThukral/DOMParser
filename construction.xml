@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="construction.xsl"?>
+
+<!DOCTYPE catalog SYSTEM "construction.dtd">
+
+<catalog>
+
+
+
+
+
+  <cd>
+    <ManagerName>Saumya</ManagerName>
+    <Phone>89000323</Phone>
+    <Address>Bannerghatta Road</Address>
+    <Email>saumya.thukral@gmail.com</Email>
+    <Age>23</Age>
+    <Projects>Woods, Citadel</Projects>
+  </cd>
+  <cd>
+    <ManagerName>Kai</ManagerName>
+    <Phone>12345</Phone>
+    <Address>JP Nagar</Address>
+    <Email>kai.sm@gmail.com</Email>
+    <Age>27</Age>
+    <Projects>Deepa, Citadel</Projects>
+  </cd>
+
+  <cd>
+    <ManagerName>Jess</ManagerName>
+    <Phone>897654</Phone>
+    <Address>JP Nagar</Address>
+    <Email>jess.ca@gmail.com</Email>
+    <Age>33</Age>
+    <Projects>Paradise, Song</Projects>
+  </cd>
+
+  <cd>
+    <ManagerName>Kavita</ManagerName>
+    <Phone>5436819</Phone>
+    <Address>Bannerghatta Road</Address>
+    <Email>kavita.ar@gmail.com</Email>
+    <Age>41</Age>
+    <Projects>Woods, Song</Projects>
+  </cd>
+  <cd>
+    <ManagerName>Minho</ManagerName>
+    <Phone>5182735</Phone>
+    <Address>Hosur Road</Address>
+    <Email>minho.ok@gmail.com</Email>
+    <Age>24</Age>
+    <Projects>Citadel, Song</Projects>
+  </cd>
+
+  <cd>
+    <ManagerName>Bilal</ManagerName>
+    <Phone>416627</Phone>
+    <Address>Gottigere</Address>
+    <Email>prakash.bilal@gmail.com</Email>
+    <Age>23</Age>
+    <Projects>Paradise, Prestige</Projects>
+  </cd>
+ 
+ <cd>
+    <ManagerName>Pandey</ManagerName>
+    <Phone>345562</Phone>
+    <Address>Indiranagar</Address>
+    <Email>pandey.ravi@gmail.com</Email>
+    <Age>27</Age>
+    <Projects>Song, Prestige</Projects>
+  </cd>
+
+    <cd>
+    <ManagerName>Aashi</ManagerName>
+    <Phone>6777739</Phone>
+    <Address>Majestic</Address>
+    <Email>aashi.makin@gmail.com</Email>
+    <Age>25</Age>
+    <Projects>Woods, Prestige</Projects>
+  </cd>
+ 
+ 
+</catalog>
+
