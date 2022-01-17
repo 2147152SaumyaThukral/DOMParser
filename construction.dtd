@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!ELEMENT catalog (cd+)>
-<!ELEMENT  cd(title,artist)>
-<!ELEMENT title(#PCDATA)>
-<!ELEMENT artist(#PCDATA)>
-
-
+<!ELEMENT catalog (cd)>
+<!ELEMENT  cd(ManagerName,Phone, Address, Email, Age, Projects)>
+<!ELEMENT ManagerName(#PCDATA)>
+<!ELEMENT Phone(#PCDATA)>
+<!ELEMENT Address(#PCDATA)>
+<!ELEMENT Email(#PCDATA)>
+<!ELEMENT Age(#PCDATA)>
+<!ELEMENT Projects(#PCDATA)>
