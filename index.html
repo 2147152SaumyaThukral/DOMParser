@@ -5,6 +5,24 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dom Parser</title>
+    <meta content="" name="description">
+  <meta content="" name="keywords">
+
+  <!-- Favicons -->
+  <link href="assets/img/favicon.png" rel="icon">
+  <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700" rel="stylesheet">
+
+  <!-- Vendor CSS Files -->
+  <link href="assets/vendor/animate.css/animate.min.css" rel="stylesheet">
+  <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+  <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+
+  <!-- Template Main CSS File -->
+  <link href="assets/css/style.css" rel="stylesheet">
     <style>
         h1{
             align-items: center;
@@ -12,9 +30,7 @@
             background-color: #2eca6a;
         }
         button{
-            width: 200px;
-            height: 80px;
-            margin-left: 500px;
+
             background-color: #2eca6a;
             border-radius: 30px;
         }
@@ -23,51 +39,117 @@
             color: white;
             cursor: pointer;
         }
+ 
+        
     </style>
 </head>
-<body>
-    <h1>Real Estate Management System</h1>
-    <h2>Our Managers and their current Projects</h2>
-    <p><button onclick="loadxmldoc()">Click here</button></p>
 
-    <table id="managername" border="1">
-        <tr>
-            <th>Manager Name</th>
-            <th>Phone Number</th>
-            <th>Address</th>
-            <th>Email</th>
-            <th>Age</th>
-            <th>Projects<th>
-        </tr>
-    </table>
 
-    <script>
-        function loadxmldoc(){
-            var xmlhttp = new XMLHttpRequest();
-            xmlhttp.onreadystatechange = function(){
-                if (this.readyState == 4 && this.status == 200){
-                    myFunction(this);
-                }
-            };
-            xmlhttp.open("GET","D:\MCA\ConstructionManagement\construction.xml",true);
-            xmlhttp.send();
-        }
-        function myFunction(xml){
-            var x, i, xmlDoc, table;
-            xmlDoc = xml.responseXML;
-            table = "<tr><th>Manager Name</th><th>Phone Number</th><th><Address></th><th><Email></th><th><Age></th><th><Projects></th></tr>";
-            x = xmlDoc.getElementsByTagName("Managers")
-            for (i = 0; i < x.length; i++){
-                table += "<tr><td>"+
-                    x[i].getElementsByTagName("Manager Name")[0].childNodes[0].nodeValue + "</td><td>"+ 
-                    x[i].getElementsByTagName("Phone Number")[0].childNodes[0].nodeValue + "</td></tr>" +
-                    x[i].getElementsByTagName("Address")[0].childNodes[0].nodeValue + "</td></tr>"+
-                    x[i].getElementsByTagName("Email")[0].childNodes[0].nodeValue + "</td></tr>"+
-                    x[i].getElementsByTagName("Age")[0].childNodes[0].nodeValue + "</td></tr>"+
-                    x[i].getElementsByTagName("Projects")[0].childNodes[0].nodeValue + "</td></tr>";
-            }
-            document.getElementById("managername").innerHTML = table;
-        }
-    </script>
+<body onload="loadXML()">
+      <!-- ======= Header/Navbar ======= -->
+  <nav class="navbar navbar-default navbar-trans navbar-expand-lg fixed-top">
+    <div class="container">
+      <button class="navbar-toggler collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#navbarDefault" aria-controls="navbarDefault" aria-expanded="false" aria-label="Toggle navigation">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+      <a class="navbar-brand text-brand" href="index.html">RealEstate<span class="color-b">System</span></a>
+
+      <div class="navbar-collapse collapse justify-content-center" id="navbarDefault">
+        <ul class="navbar-nav">
+
+          <li class="nav-item">
+            <a class="nav-link active" href="index.html">Construction Management</a>
+          </li>
+
+          <li class="nav-item">
+            <a class="nav-link " href="property-grid.html">Lease/Rent</a>
+          </li>
+
+          <li class="nav-item">
+            <a class="nav-link " href="property-grid.html">Loan/Finance</a>
+          </li>
+
+          <li class="nav-item">
+            <a class="nav-link " href="blog-grid.html">Buying/Selling</a>
+          </li>
+
+          <li class="nav-item">
+            <a class="nav-link " href="property-grid.html">Careers</a>
+          </li>
+
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Management</a>
+            <div class="dropdown-menu">
+              <a class="dropdown-item " href="property-single.html">Customer Service Management</a>
+              <a class="dropdown-item " href="blog-single.html">Services Management</a>
+              <a class="dropdown-item " href="agents-grid.html">Security and Parking Management</a>
+              <a class="dropdown-item " href="agent-single.html">Renovation</a>
+              <a class="dropdown-item " href="agent-single.html">Interior Designing Management</a>
+            </div>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link " href="contact.html">Contact</a>
+          </li>
+        </ul>
+      </div>
+
+      <button type="button" class="btn btn-b-n navbar-toggle-box navbar-toggle-box-collapse" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo01">
+        Log in
+      </button>
+
+    </div>
+  </nav><!-- End Header/Navbar -->
+
+    <article>
+      
+
+          <h2 style="text-align: center;"><u>Add Managers</u></h2>
+
+          <div>
+              <button id="openForm" name="openForm" onclick="openForm()">Add</button>
+          </div>
+          
+          <table id="table"></table>
+          
+          <!--Form for record input-->
+          <form id='addRecordForm'>
+              <h2>Enter New Manger details</h2>
+              <div>
+                  <label>Manager name</label>
+                  <input type='text' name='Managername' id='Managername' class="form-control" placeholder="Enter Manager name">
+              </div>
+              <div>
+                <label>Phone Number</label>
+                <input type='text' name='Phone' id='Phone' class="form-control" placeholder="Enter Phone No">
+            </div>
+            <div>
+              <label>Address</label>
+              <input type='text' name='Address' id='Address' class="form-control" placeholder="Enter Address">
+          </div>
+          <div>
+            <label>Email</label>
+            <input type='text' name='Email' id='Email' class="form-control" placeholder="Enter Email">
+        </div>
+        <div>
+          <label>Age</label>
+          <input type='text' name='Age' id='Age' class="form-control" placeholder="Enter Age">
+      </div>
+      <div>
+        <label>Projects</label>
+        <input type='text' name='Projects' id='projects' class="form-control" placeholder="Enter projects">
+    </div>
+     
+      
+              <input type="button" value="Add" id="add" class="btn btn-primary" onclick="addNewRecord()">
+              <input type="button" value="Close" id="close" class="btn btn-primary" onclick="closeForm()">
+          </form>
+
+          <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+          <script src="construction.js"></script>
+
+      </div>
+      </article>
 </body>
 </html>
