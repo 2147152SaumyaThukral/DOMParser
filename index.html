@@ -23,6 +23,8 @@
 
   <!-- Template Main CSS File -->
   <link href="assets/css/style.css" rel="stylesheet">
+  <script src = "construction.js" ></script>
+
     <style>
         h1{
             align-items: center;
@@ -115,7 +117,8 @@
           
           <!--Form for record input-->
           <form id='addRecordForm'>
-              <h2>Enter New Manger details</h2>
+            <br><br><br>  
+            <h2>Enter New Manger details</h2>
               <div>
                   <label>Manager name</label>
                   <input type='text' name='Managername' id='Managername' class="form-control" placeholder="Enter Manager name">
@@ -140,14 +143,21 @@
         <label>Projects</label>
         <input type='text' name='Projects' id='projects' class="form-control" placeholder="Enter projects">
     </div>
+    <table  id='table'>
+      <button  class="btn btn-primary" onclick = 'renovationXML()'>Show table</button>
+
+      <button  onclick = "removeNodeElement()">Remove Address</button>
+      <button onclick = "changeNodeValue()">Change Projects</button>
+      <button onclick = "addNewElement()">Add new info</button>
+             
+    </table>
      
       
-              <input type="button" value="Add" id="add" class="btn btn-primary" onclick="addNewRecord()">
-              <input type="button" value="Close" id="close" class="btn btn-primary" onclick="closeForm()">
+              <input type="button" value="Add" id="add" onclick="addNewRecord()">
+              <input type="button" value="Close" id="close" onclick="closeForm()">
           </form>
 
           <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
-          <script src="construction.js"></script>
 
       </div>
       </article>
